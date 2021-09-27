@@ -17,19 +17,9 @@ typedef struct s_list
 	struct s_list *next;
 }			t_list;
 
-int	ft_strlen(const char *str)
-{
-	int i;
-
-	i = 0;
-	while (str && str[i])
-		i++;
-	return (i);
-}
-
 int show_error(const char *str)
 {
-	write(2, str, ft_strlen(str));
+	write(2, str, strlen(str));
 	return (EXIT_FAILURE);
 }
 
@@ -53,7 +43,7 @@ char *ft_strdup(const char *str)
 	int i;
 	char *new;
 
-	len = ft_strlen(str);
+	len = strlen(str);
 	if (!(new = (char *)malloc(len + 1)))
 		return (exit_fatal_ptr());
 	i = -1;
